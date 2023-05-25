@@ -17,18 +17,18 @@ import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
 const registerSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required"),
-  location: yup.string().required("required"),
-  occupation: yup.string().required("required"),
-  picture: yup.string().required("required"),
+  firstName: yup.string().required("Required"),
+  lastName: yup.string().required("Required"),
+  email: yup.string().email("Invalid email").required("Required"),
+  password: yup.string().required("Required"),
+  location: yup.string().required("Required"),
+  occupation: yup.string().required("Required"),
+  picture: yup.string().required("Required"),
 });
 
 const loginSchema = yup.object().shape({
-  email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required"),
+  email: yup.string().email("Invalid email").required("Required"),
+  password: yup.string().required("Required"),
 });
 
 const initialValuesRegister = {
@@ -55,8 +55,9 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
+  //registering
   const register = async (values, onSubmitProps) => {
-    // this allows us to send form info with image
+    //allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
@@ -64,7 +65,7 @@ const Form = () => {
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "http://localhost:3001/auth/register",
+      "http://localhost:8800/auth/register",
       {
         method: "POST",
         body: formData,
@@ -78,15 +79,28 @@ const Form = () => {
     }
   };
 
+  //process of login
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+    const res = await fetch("http://localhost:8800/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
-    });
-    const loggedIn = await loggedInResponse.json();
+    }); 
+
+    const loggedIn = await res.json();
+    
+    console.log(loggedIn.msg)
+
     onSubmitProps.resetForm();
-    if (loggedIn) {
+
+    //checking if user exists or not
+    if(loggedIn.msg === "User does not exist."){
+      alert("User does not exist.")
+    }
+    else if(loggedIn.msg === "Invalid credentials."){
+      alert("Invalid credentials.")
+    }
+    else if (loggedIn) {
       dispatch(
         setLogin({
           user: loggedIn.user,
@@ -135,11 +149,10 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.firstName}
                   name="firstName"
-                  error={
-                    Boolean(touched.firstName) && Boolean(errors.firstName)
-                  }
+                  error={Boolean(touched.firstName) && Boolean(errors.firstName)}
                   helperText={touched.firstName && errors.firstName}
                   sx={{ gridColumn: "span 2" }}
+                  required
                 />
                 <TextField
                   label="Last Name"
@@ -150,6 +163,7 @@ const Form = () => {
                   error={Boolean(touched.lastName) && Boolean(errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
                   sx={{ gridColumn: "span 2" }}
+                  required
                 />
                 <TextField
                   label="Location"
@@ -167,9 +181,7 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.occupation}
                   name="occupation"
-                  error={
-                    Boolean(touched.occupation) && Boolean(errors.occupation)
-                  }
+                  error={Boolean(touched.occupation) && Boolean(errors.occupation)}    
                   helperText={touched.occupation && errors.occupation}
                   sx={{ gridColumn: "span 4" }}
                 />
@@ -218,6 +230,7 @@ const Form = () => {
               error={Boolean(touched.email) && Boolean(errors.email)}
               helperText={touched.email && errors.email}
               sx={{ gridColumn: "span 4" }}
+              required
             />
             <TextField
               label="Password"
@@ -229,6 +242,7 @@ const Form = () => {
               error={Boolean(touched.password) && Boolean(errors.password)}
               helperText={touched.password && errors.password}
               sx={{ gridColumn: "span 4" }}
+              required
             />
           </Box>
 
