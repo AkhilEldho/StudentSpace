@@ -246,7 +246,7 @@ const Form = () => {
             />
           </Box>
 
-          {/* BUTTONS */}
+          {/* BUTTONS DESIGN & LAYOUT */}
           <Box>
             <Button
               fullWidth
