@@ -4,7 +4,7 @@ import {
     LocationOnOutlined,
     WorkOutlineOutlined,
   } from "@mui/icons-material";
-  import { Box, Typography, Divider, useTheme } from "@mui/material";
+  import { Box, Typography, Divider, useTheme, IconButton } from "@mui/material";
   import { useSelector } from "react-redux";
   import { useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
@@ -54,12 +54,12 @@ import {
         <FlexBetween
           gap="0.5rem"
           pb="1.1rem"
-          onClick={() => navigate(`/profile/${userId}`)}
         >
           <FlexBetween gap="1rem">
             <UserImage image={picturePath} />
             <Box>
               <Typography
+                onClick={() => navigate(`/profile/${userId}`)}
                 variant="h4"
                 color={dark}
                 fontWeight="500"
@@ -75,7 +75,9 @@ import {
               <Typography color={medium}>{friends.length} friends</Typography>
             </Box>
           </FlexBetween>
-          <ManageAccountsOutlined />
+          <IconButton>
+            <ManageAccountsOutlined />
+          </IconButton>
         </FlexBetween>
   
         <Divider />
@@ -128,7 +130,9 @@ import {
                 <Typography color={medium}>Social Network</Typography>
               </Box>
             </FlexBetween>
-            <EditOutlined sx={{ color: main }} />
+            <IconButton>
+              <EditOutlined sx={{ color: main }} />
+            </IconButton>
           </FlexBetween>
   
           <FlexBetween gap="1rem">
@@ -141,7 +145,9 @@ import {
                 <Typography color={medium}>Network Platform</Typography>
               </Box>
             </FlexBetween>
-            <EditOutlined sx={{ color: main }} />
+            <IconButton>
+              <EditOutlined sx={{ color: main }} />
+            </IconButton>
           </FlexBetween>
         </Box>
       </WidgetWrapper>

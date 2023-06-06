@@ -25,6 +25,7 @@ import {
   import UserImage from "../../components/UserImage";
   import WidgetWrapper from "../../components/WidgetWrapper";
 
+  //POST WIDGET
   const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
@@ -37,6 +38,7 @@ import {
     const mediumMain = palette.neutral.mediumMain;
     const medium = palette.neutral.medium;
   
+    //getting information
     const handlePost = async () => {
       const formData = new FormData();
       formData.append("userId", _id);
@@ -57,6 +59,7 @@ import {
       setPost("");
     };
   
+    //DESIGN & Frontend
     return (
       <WidgetWrapper>
         <FlexBetween gap="1.5rem">
@@ -134,18 +137,24 @@ import {
           {isNonMobileScreens ? (
             <>
               <FlexBetween gap="0.25rem">
-                <GifBoxOutlined sx={{ color: mediumMain }} />
-                <Typography color={mediumMain}>Clip</Typography>
+                <IconButton>
+                  <GifBoxOutlined sx={{ color: mediumMain }} />
+                  <Typography color={mediumMain}>Clip</Typography>
+                </IconButton>
               </FlexBetween>
   
               <FlexBetween gap="0.25rem">
-                <AttachFileOutlined sx={{ color: mediumMain }} />
-                <Typography color={mediumMain}>Attachment</Typography>
+                <IconButton>
+                  <AttachFileOutlined sx={{ color: mediumMain }} />
+                  <Typography color={mediumMain}>Attachment</Typography>
+                </IconButton>
               </FlexBetween>
   
               <FlexBetween gap="0.25rem">
-                <MicOutlined sx={{ color: mediumMain }} />
-                <Typography color={mediumMain}>Audio</Typography>
+                <IconButton>
+                  <MicOutlined sx={{ color: mediumMain }} />
+                  <Typography color={mediumMain}>Audio</Typography>
+                </IconButton>
               </FlexBetween>
             </>
           ) : (
