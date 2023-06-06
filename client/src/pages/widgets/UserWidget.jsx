@@ -3,8 +3,13 @@ import {
     EditOutlined,
     LocationOnOutlined,
     WorkOutlineOutlined,
+    InstallMobile,
+    LaptopChromebook,
+    Airplay,
+    Storage
   } from "@mui/icons-material";
-  import { Box, Typography, Divider, useTheme, IconButton } from "@mui/material";
+  import MenuIcon from '@mui/icons-material/Menu';
+  import { Box, Typography, Divider, useTheme, IconButton, Menu } from "@mui/material";
   import { useSelector } from "react-redux";
   import { useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
@@ -149,6 +154,78 @@ import {
               <EditOutlined sx={{ color: main }} />
             </IconButton>
           </FlexBetween>
+        </Box>
+
+        <Divider />
+  
+          {/* course ROW */}
+          <Box p="1rem 0">
+
+          <FlexBetween>
+            <FlexBetween>
+              <Typography fontSize="1rem" color={main} fontWeight="500">
+                Courses | Semester 1 | 2023
+              </Typography>
+            </FlexBetween>
+            <IconButton>
+            <MenuIcon/>
+            </IconButton>
+          </FlexBetween>
+  
+          <FlexBetween gap="1rem" mb="0.5rem">
+            <FlexBetween gap="1rem">
+              <Box gap="1rem" marginLeft={2}>
+                <Typography color={main} fontWeight="500">
+                  Hot Topics
+                </Typography>
+              </Box>
+            </FlexBetween>
+            <IconButton>
+              <InstallMobile sx={{ color: main }} />
+            </IconButton>
+          </FlexBetween>
+  
+          <FlexBetween gap="1rem" mb="0.5rem">
+            <FlexBetween gap="1rem">
+              <Box gap="1rem" marginLeft={2}>
+                <Typography color={main} fontWeight="500">
+                  Cloud Computing
+                </Typography>
+              </Box>
+            </FlexBetween>
+            <IconButton>
+              <LaptopChromebook sx={{ color: main }} />
+            </IconButton>
+          </FlexBetween>
+
+
+          <FlexBetween gap="1rem" mb="0.5rem">
+            <FlexBetween gap="1rem">
+              <Box gap="1rem" marginLeft={2}>
+                <Typography color={main} fontWeight="500">
+                  Database & Moblie Development
+                </Typography>
+              </Box>
+            </FlexBetween>
+            <IconButton>
+              <Storage sx={{ color: main }} />
+            </IconButton>
+          </FlexBetween>
+
+
+          <FlexBetween gap="1rem" mb="0.5rem">
+            <FlexBetween gap="1rem">
+              <Box gap="1rem" marginLeft={2}>
+                <Typography color={main} fontWeight="500">
+                  Software Development
+                </Typography>
+              </Box>
+            </FlexBetween>
+            <IconButton>
+              <Airplay sx={{ color: main }} />
+            </IconButton>
+          </FlexBetween>
+
         </Box>
       </WidgetWrapper>
     );
