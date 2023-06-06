@@ -17,6 +17,7 @@ import {
   import FlexBetween from "../../components/FlexBetween.jsx";
   import WidgetWrapper from "../../components/WidgetWrapper.jsx";
   
+  //Creating controller for user widget on left panel
   const UserWidget = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null);
     const { palette } = useTheme();
@@ -55,7 +56,7 @@ import {
   
     return (
       <WidgetWrapper>
-        {/* FIRST ROW */}
+        {/* FIRST ROW - User Info */}
         <FlexBetween
           gap="0.5rem"
           pb="1.1rem"
@@ -87,7 +88,7 @@ import {
   
         <Divider />
   
-        {/* SECOND ROW */}
+        {/* SECOND ROW - User location and profession */}
         <Box p="1rem 0">
           <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
             <LocationOnOutlined fontSize="large" sx={{ color: main }} />
@@ -100,26 +101,8 @@ import {
         </Box>
   
         <Divider />
-  
-        {/* THIRD ROW */}
-        <Box p="1rem 0">
-          <FlexBetween mb="0.5rem">
-            <Typography color={medium}>Who's viewed your profile</Typography>
-            <Typography color={main} fontWeight="500">
-              {viewedProfile}
-            </Typography>
-          </FlexBetween>
-          <FlexBetween>
-            <Typography color={medium}>Impressions of your post</Typography>
-            <Typography color={main} fontWeight="500">
-              {impressions}
-            </Typography>
-          </FlexBetween>
-        </Box>
-  
-        <Divider />
-  
-        {/* FOURTH ROW */}
+    
+        {/* THIRD ROW - Social Profile connection */}
         <Box p="1rem 0">
           <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">
             Social Profiles
@@ -129,10 +112,14 @@ import {
             <FlexBetween gap="1rem">
               <img src="../assets/twitter.png" alt="twitter" />
               <Box>
-                <Typography color={main} fontWeight="500">
-                  Twitter
+                <Typography color={main} fontWeight="500" sx={{
+                    "&:hover": {
+                      color: palette.primary.light,
+                      cursor: "pointer",
+                    },
+                  }}>
+                  Twitter.com/{user.firstName}
                 </Typography>
-                <Typography color={medium}>Social Network</Typography>
               </Box>
             </FlexBetween>
             <IconButton>
@@ -144,10 +131,14 @@ import {
             <FlexBetween gap="1rem">
               <img src="../assets/linkedin.png" alt="linkedin" />
               <Box>
-                <Typography color={main} fontWeight="500">
-                  Linkedin
+                <Typography color={main} fontWeight="500" sx={{
+                  "&:hover": {
+                    color: palette.primary.light,
+                    cursor: "pointer",
+                  },
+                }}>
+                  Linkedin.com/{user.firstName + user.lastName}
                 </Typography>
-                <Typography color={medium}>Network Platform</Typography>
               </Box>
             </FlexBetween>
             <IconButton>
@@ -175,7 +166,12 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500">
+                <Typography color={main} fontWeight="500" sx={{
+                    "&:hover": {
+                      color: palette.primary.light,
+                      cursor: "pointer",
+                    },
+                  }}>
                   Hot Topics
                 </Typography>
               </Box>
@@ -188,7 +184,12 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500">
+                <Typography color={main} fontWeight="500" sx={{
+                    "&:hover": {
+                      color: palette.primary.light,
+                      cursor: "pointer",
+                    },
+                  }}>
                   Cloud Computing
                 </Typography>
               </Box>
@@ -202,7 +203,12 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500">
+                <Typography color={main} fontWeight="500" sx={{
+                    "&:hover": {
+                      color: palette.primary.light,
+                      cursor: "pointer",
+                    },
+                  }}>
                   Database & Moblie Development
                 </Typography>
               </Box>
@@ -216,7 +222,12 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500">
+                <Typography color={main} fontWeight="500" sx={{
+                    "&:hover": {
+                      color: palette.primary.light,
+                      cursor: "pointer",
+                    },
+                  }}>
                   Software Development
                 </Typography>
               </Box>
