@@ -2,9 +2,9 @@ import Post from "../models/Post.js";
 import User from "../models/User.js";
 
 /* CREATING POST */
-export const createPost = async (req, res) => {
+export const createPost = async (request, responseponse) => {
     try {
-        const { userId, description, picturePath } = req.body;
+        const { userId, description, picturePath } = request.body;
         const user = await User.findById(userId);
         const newPost = new Post({
             userId,
@@ -21,37 +21,37 @@ export const createPost = async (req, res) => {
         await newPost.save();
 
         const post = await Post.find();
-        res.status(201).json(post);
-    } catch (err) {
-        res.status(409).json({ message: err.message });
+        response.status(201).json(post);
+    } catch (error) {
+        response.status(409).json({ message: error.message });
     }
 };
 
 /* GETTING THE POSTS */
-export const getFeedPosts = async (req, res) => {
+export const getFeedPosts = async (request, response) => {
     try {
         const post = await Post.find();
-        res.status(200).json(post);
-    } catch (err) {
-        res.status(404).json({ message: err.message });
+        response.status(200).json(post);
+    } catch (error) {
+        response.status(404).json({ message: error.message });
     }
 };
 
-export const getUserPosts = async (req, res) => {
+export const getUserPosts = async (request, response) => {
     try {
-        const { userId } = req.params;
+        const { userId } = request.params;
         const post = await Post.find({ userId });
-        res.status(200).json(post);
-    } catch (err) {
-        res.status(404).json({ message: err.message });
+        response.status(200).json(post);
+    } catch (error) {
+        response.status(404).json({ message: error.message });
     }
 };
 
 /* UPDATING POSTS */
-export const likePost = async (req, res) => {
+export const likePost = async (request, response) => {
     try {
-        const { id } = req.params;
-        const { userId } = req.body;
+        const { id } = request.params;
+        const { userId } = request.body;
         const post = await Post.findById(id);
         const isLiked = post.likes.get(userId);
 
@@ -67,8 +67,8 @@ export const likePost = async (req, res) => {
             { new: true }
         );
 
-        res.status(200).json(updatedPost);
-    } catch (err) {
-        res.status(404).json({ message: err.message });
+        response.status(200).json(updatedPost);
+    } catch (error) {
+        response.status(404).json({ message: error.message });
     }
 };
