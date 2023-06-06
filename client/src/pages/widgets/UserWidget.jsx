@@ -9,7 +9,7 @@ import {
     Storage
   } from "@mui/icons-material";
   import MenuIcon from '@mui/icons-material/Menu';
-  import { Box, Typography, Divider, useTheme, IconButton, Menu } from "@mui/material";
+  import { Box, Typography, Divider, useTheme, IconButton } from "@mui/material";
   import { useSelector } from "react-redux";
   import { useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
@@ -49,8 +49,6 @@ import {
       lastName,
       location,
       occupation,
-      viewedProfile,
-      impressions,
       friends,
     } = user;
   

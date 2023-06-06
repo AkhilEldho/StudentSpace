@@ -4,6 +4,7 @@ import User from "../models/User.js";
 /* CREATING POST */
 export const createPost = async (request, responseponse) => {
     try {
+        //getting info and creating post
         const { userId, description, picturePath } = request.body;
         const user = await User.findById(userId);
         const newPost = new Post({
@@ -29,6 +30,7 @@ export const createPost = async (request, responseponse) => {
 
 /* GETTING THE POSTS */
 export const getFeedPosts = async (request, response) => {
+    //getting all the posts in database
     try {
         const post = await Post.find();
         response.status(200).json(post);
@@ -38,6 +40,7 @@ export const getFeedPosts = async (request, response) => {
 };
 
 export const getUserPosts = async (request, response) => {
+    //getting user posts only
     try {
         const { userId } = request.params;
         const post = await Post.find({ userId });
@@ -55,6 +58,7 @@ export const likePost = async (request, response) => {
         const post = await Post.findById(id);
         const isLiked = post.likes.get(userId);
 
+        //liking and unliking post
         if (isLiked) {
             post.likes.delete(userId);
         } else {

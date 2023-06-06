@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-//CREATING DATBASE MODEL FOR POSTS
+//Post data model for database
 const postSchema = mongoose.Schema(
     {
         userId: {

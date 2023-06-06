@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+//connection component
 export const verifyToken = async (request, response, next) => {
     try {
         let token = request.header("Authorization");

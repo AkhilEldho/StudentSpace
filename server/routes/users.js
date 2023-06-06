@@ -8,11 +8,11 @@ import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
-/* READ */
+/* Reading */
 router.get("/:id", verifyToken, getUser);
 router.get("/:id/friends", verifyToken, getUserFriends);
 
-/* UPDATE */
+/* Updating */
 router.patch("/:id/:friendId", verifyToken, addRemoveFriend);
 
 export default router;

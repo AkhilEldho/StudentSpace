@@ -3,6 +3,7 @@ import User from "../models/User.js";
 /* GETTING USER */
 export const getUser = async (request, response) => {
     try {
+        //getting user info and return user
         const { id } = request.params;
         const user = await User.findById(id);
         response.status(200).json(user);
@@ -17,6 +18,7 @@ export const getUserFriends = async (request, response) => {
         const { id } = request.params;
         const user = await User.findById(id);
 
+        //getting user friend and returning in map format
         const friends = await Promise.all(
         user.friends.map((id) => User.findById(id))
         );
@@ -42,7 +44,9 @@ export const addRemoveFriend = async (request, response) => {
       if (user.friends.includes(friendId)) {
         user.friends = user.friends.filter((id) => id !== friendId);
         friend.friends = friend.friends.filter((id) => id !== id);
-      } else if (user.id != friend.id) {
+      } 
+      //add friend only if id is different
+      else if (user.id != friend.id) {
         user.friends.push(friendId);
         friend.friends.push(id);
       }
