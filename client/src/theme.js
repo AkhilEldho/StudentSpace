@@ -17,18 +17,14 @@ export const colorTokens = {
       600: "#4D4D4D",
       1000: "#000000",
     },
+    //Red
     primary: {
-      50: "#ffe6e6",
-      200: "#fc9797",
-      500: "#fa0000",
-      700: "#7d0000",
-      800: "#400000",
-
-      100: "#CCF7FE",
-      300: "#66E6FC",
-      400: "#33DDFB",
-      600: "#00A0BC",
-      900: "#001519",
+      50: "#FFE6E6",
+      200: "#FD999B",
+      500: "#950101",
+      600: "FF3000",
+      700: "#7D0000",
+      800: "#3F0000"
     },
   };
   
@@ -62,18 +58,19 @@ export const colorTokens = {
               primary: {
                 dark: colorTokens.primary[700],
                 main: colorTokens.primary[500],
-                light: colorTokens.primary[50],
+                bright: colorTokens.primary[600],
+                light: colorTokens.primary[50]
               },
               neutral: {
                 dark: colorTokens.grey[700],
                 main: colorTokens.grey[500],
                 mediumMain: colorTokens.grey[400],
                 medium: colorTokens.grey[300],
-                light: colorTokens.grey[50],
+                light: colorTokens.grey[50]
               },
               background: {
                 default: colorTokens.grey[10],
-                alt: colorTokens.grey[0],
+                alt: colorTokens.grey[0]
               },
             }),
       },

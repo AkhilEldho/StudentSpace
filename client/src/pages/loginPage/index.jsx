@@ -24,6 +24,10 @@ const LoginPage = () => {
         borderRadius="1.5rem"
         backgroundColor={theme.palette.background.alt}
       >
+        <img
+          width="100%"
+          height="auto"
+          src="http://localhost:8800/assets/inazuma.jpg" />
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcome to Student Space!
         </Typography>

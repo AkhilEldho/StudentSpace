@@ -6,7 +6,8 @@ import {
     InstallMobile,
     LaptopChromebook,
     Airplay,
-    Storage
+    Storage,
+    Dataset
   } from "@mui/icons-material";
   import MenuIcon from '@mui/icons-material/Menu';
   import { Box, Typography, Divider, useTheme, IconButton } from "@mui/material";
@@ -25,6 +26,7 @@ import {
     const token = useSelector((state) => state.token);
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
+    const bright = palette.primary.bright;
     const main = palette.neutral.main;
   
     const getUser = async () => {
@@ -69,7 +71,7 @@ import {
                 fontWeight="500"
                 sx={{
                   "&:hover": {
-                    color: palette.primary.light,
+                    color: bright,
                     cursor: "pointer",
                   },
                 }}
@@ -212,7 +214,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <Storage sx={{ color: main }} />
+              <Dataset sx={{ color: main }} />
             </IconButton>
           </FlexBetween>
 

@@ -16,6 +16,7 @@ import Dropzone from "react-dropzone";
 import FlexBetween from "../../components/FlexBetween";
 import { setLogin } from "../../state";
 
+//registration form
 const registrationForm = yup.object().shape({
   firstName: yup.string().required("Required"),
   lastName: yup.string().required("Required"),
@@ -26,6 +27,7 @@ const registrationForm = yup.object().shape({
   picture: yup.string().required("Required"),
 });
 
+//login
 const loginForm = yup.object().shape({
   email: yup.string().email("Invalid email").required("Required"),
   password: yup.string().required("Required"),
@@ -46,6 +48,7 @@ const loginIntialValues = {
   password: "",
 };
 
+//Form itself 
 const Form = () => {
   const [pageType, setPageType] = useState("login");
   const { palette } = useTheme();
@@ -256,7 +259,7 @@ const Form = () => {
                 p: "1rem",
                 backgroundColor: palette.primary.main,
                 color: palette.background.alt,
-                "&:hover": { color: palette.primary.main },
+                "&:hover": { backgroundColor: palette.primary.bright },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -271,7 +274,7 @@ const Form = () => {
                 color: palette.primary.main,
                 "&:hover": {
                   cursor: "pointer",
-                  color: palette.primary.light,
+                  color: palette.primary.bright
                 },
               }}
             >

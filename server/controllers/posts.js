@@ -2,7 +2,7 @@ import Post from "../models/Post.js";
 import User from "../models/User.js";
 
 /* CREATING POST */
-export const createPost = async (request, responseponse) => {
+export const createPost = async (request, response) => {
     try {
         //getting info and creating post
         const { userId, description, picturePath } = request.body;

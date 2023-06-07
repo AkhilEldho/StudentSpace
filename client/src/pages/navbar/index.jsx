@@ -44,7 +44,7 @@ const Navbar = () => {
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
-    <FlexBetween padding="1rem 6%" backgroundColor={alt}>
+    <FlexBetween padding="1rem 6%">
       <FlexBetween gap="1.75rem">
         <Typography
           fontWeight="bold"
@@ -53,8 +53,8 @@ const Navbar = () => {
           onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
-              color: primaryLight,
-              cursor: "pointer",
+              color: theme.palette.primary.bright,
+              cursor: "pointer"
             },
           }}
         >
@@ -75,10 +75,10 @@ const Navbar = () => {
         )}
       </FlexBetween>
 
-      {/* DESKTOP NAV */}
+      {/* Desktop Nav */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
-          {/* ICONS */}
+          {/* Icons */}
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
               <DarkMode sx={{ fontSize: "25px" }} />
@@ -128,7 +128,7 @@ const Navbar = () => {
         </IconButton>
       )}
 
-      {/* MOBILE NAV */}
+      {/* Mobile Navigation */}
       {!isNonMobileScreens && isMobileMenuToggled && (
         <Box
           position="fixed"
@@ -140,7 +140,7 @@ const Navbar = () => {
           minWidth="300px"
           backgroundColor={background}
         >
-          {/* CLOSE ICON */}
+          {/* Close Icon */}
           <Box display="flex" justifyContent="flex-end" p="1rem">
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
@@ -149,7 +149,7 @@ const Navbar = () => {
             </IconButton>
           </Box>
 
-          {/* MENU ITEMS */}
+          {/* Menu Items */}
           <FlexBetween
             display="flex"
             flexDirection="column"
