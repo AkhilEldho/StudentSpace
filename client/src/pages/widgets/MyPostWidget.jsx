@@ -168,8 +168,9 @@ import {
             onClick={handlePost}
             sx={{
               color: palette.background.alt,
-              backgroundColor: palette.primary.main,
+              backgroundColor: palette.neutral.main,
               borderRadius: "3rem",
+              ":hover": { cursor: "pointer", backgroundColor: palette.primary.main }
             }}
           >
             POST

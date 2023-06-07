@@ -7,7 +7,8 @@ import {
     LaptopChromebook,
     Airplay,
     Storage,
-    Dataset
+    Dataset,
+    Palette
   } from "@mui/icons-material";
   import MenuIcon from '@mui/icons-material/Menu';
   import { Box, Typography, Divider, useTheme, IconButton } from "@mui/material";
@@ -26,7 +27,7 @@ import {
     const token = useSelector((state) => state.token);
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
-    const bright = palette.primary.bright;
+    const light = palette.primary.light;
     const main = palette.neutral.main;
   
     const getUser = async () => {
@@ -71,7 +72,7 @@ import {
                 fontWeight="500"
                 sx={{
                   "&:hover": {
-                    color: bright,
+                    color: light,
                     cursor: "pointer",
                   },
                 }}
@@ -82,7 +83,7 @@ import {
             </Box>
           </FlexBetween>
           <IconButton>
-            <ManageAccountsOutlined />
+            <ManageAccountsOutlined sx={{color:palette.primary.main}} />
           </IconButton>
         </FlexBetween>
   
@@ -123,7 +124,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <EditOutlined sx={{ color: main }} />
+              <EditOutlined sx={{color:palette.primary.main}} />
             </IconButton>
           </FlexBetween>
   
@@ -142,7 +143,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <EditOutlined sx={{ color: main }} />
+              <EditOutlined sx={{color:palette.primary.main}} />
             </IconButton>
           </FlexBetween>
         </Box>
@@ -159,7 +160,7 @@ import {
               </Typography>
             </FlexBetween>
             <IconButton>
-            <MenuIcon/>
+            <MenuIcon sx={{color:palette.primary.main}}/>
             </IconButton>
           </FlexBetween>
   
@@ -177,7 +178,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <InstallMobile sx={{ color: main }} />
+              <InstallMobile sx={{color:palette.primary.main}} />
             </IconButton>
           </FlexBetween>
   
@@ -195,7 +196,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <LaptopChromebook sx={{ color: main }} />
+              <LaptopChromebook sx={{color:palette.primary.main}}/>
             </IconButton>
           </FlexBetween>
 
@@ -214,7 +215,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <Dataset sx={{ color: main }} />
+              <Dataset sx={{color:palette.primary.main}} />
             </IconButton>
           </FlexBetween>
 
@@ -233,7 +234,7 @@ import {
               </Box>
             </FlexBetween>
             <IconButton>
-              <Airplay sx={{ color: main }} />
+              <Airplay sx={{color:palette.primary.main}} />
             </IconButton>
           </FlexBetween>
 
