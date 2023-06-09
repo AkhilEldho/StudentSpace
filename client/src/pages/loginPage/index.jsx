@@ -12,7 +12,7 @@ const LoginPage = () => {
         p="1rem 6%"
         textAlign="center"
       >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
+        <Typography fontWeight="bold" fontSize="32px" sx={{color:theme.palette.primary.main}}>
           Student Space
         </Typography>
       </Box>

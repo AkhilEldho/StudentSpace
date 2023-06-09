@@ -23,12 +23,12 @@ import {
   const UserWidget = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null);
     const { palette } = useTheme();
+    const theme = useTheme();
     const navigate = useNavigate();
     const token = useSelector((state) => state.token);
-    const dark = palette.neutral.dark;
-    const medium = palette.neutral.medium;
-    const light = palette.primary.light;
-    const main = palette.neutral.main;
+
+    const dark = theme.palette.neutral.dark;
+    const main = theme.palette.primary.main;
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:8800/users/${userId}`, {
@@ -68,18 +68,18 @@ import {
               <Typography
                 onClick={() => navigate(`/profile/${userId}`)}
                 variant="h4"
-                color={medium}
                 fontWeight="500"
                 sx={{
+                  color:dark,
                   "&:hover": {
-                    color: dark,
+                    color:main,
                     cursor: "pointer",
                   },
                 }}
               >
                 {firstName} {lastName}
               </Typography>
-              <Typography color={medium}>{friends.length} friends</Typography>
+              <Typography color={dark}>{friends.length} Friends</Typography>
             </Box>
           </FlexBetween>
           <IconButton>
@@ -93,11 +93,11 @@ import {
         <Box p="1rem 0">
           <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
             <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-            <Typography color={medium}>{location}</Typography>
+            <Typography color={dark}>{location}</Typography>
           </Box>
           <Box display="flex" alignItems="center" gap="1rem">
             <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
-            <Typography color={medium}>{occupation}</Typography>
+            <Typography color={dark}>{occupation}</Typography>
           </Box>
         </Box>
   
@@ -105,7 +105,7 @@ import {
     
         {/* THIRD ROW - Social Profile connection */}
         <Box p="1rem 0">
-          <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">
+          <Typography fontSize="1rem" color={dark} fontWeight="500" mb="1rem">
             Social Profiles
           </Typography>
   
@@ -113,9 +113,9 @@ import {
             <FlexBetween gap="1rem">
               <img src="../assets/twitter.png" alt="twitter" />
               <Box>
-                <Typography color={main} fontWeight="500" sx={{
+                <Typography color={dark} fontWeight="500" sx={{
                     "&:hover": {
-                      color: palette.primary.light,
+                      color: main,
                       cursor: "pointer",
                     },
                   }}>
@@ -132,9 +132,9 @@ import {
             <FlexBetween gap="1rem">
               <img src="../assets/linkedin.png" alt="linkedin" />
               <Box>
-                <Typography color={main} fontWeight="500" sx={{
+                <Typography color={dark} fontWeight="500" sx={{
                   "&:hover": {
-                    color: palette.primary.light,
+                    color: main,
                     cursor: "pointer",
                   },
                 }}>
@@ -155,7 +155,7 @@ import {
 
           <FlexBetween>
             <FlexBetween>
-              <Typography fontSize="1rem" color={main} fontWeight="500">
+              <Typography fontSize="1rem" color={{dark}} fontWeight="500">
                 Courses | Semester 1 | 2023
               </Typography>
             </FlexBetween>
@@ -167,9 +167,9 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500" sx={{
+                <Typography color={dark} fontWeight="500" sx={{
                     "&:hover": {
-                      color: palette.primary.light,
+                      color: main,
                       cursor: "pointer",
                     },
                   }}>
@@ -185,9 +185,9 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500" sx={{
+                <Typography color={dark} fontWeight="500" sx={{
                     "&:hover": {
-                      color: palette.primary.light,
+                      color: main,
                       cursor: "pointer",
                     },
                   }}>
@@ -204,9 +204,9 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500" sx={{
+                <Typography color={dark} fontWeight="500" sx={{
                     "&:hover": {
-                      color: palette.primary.light,
+                      color: main,
                       cursor: "pointer",
                     },
                   }}>
@@ -223,9 +223,9 @@ import {
           <FlexBetween gap="1rem" mb="0.5rem">
             <FlexBetween gap="1rem">
               <Box gap="1rem" marginLeft={2}>
-                <Typography color={main} fontWeight="500" sx={{
+                <Typography color={dark} fontWeight="500" sx={{
                     "&:hover": {
-                      color: palette.primary.light,
+                      color: main,
                       cursor: "pointer",
                     },
                   }}>
