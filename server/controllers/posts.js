@@ -21,8 +21,7 @@ export const createPost = async (request, response) => {
         
         await newPost.save();
 
-        const post = await Post.find();
-        response.status(201).json(post);
+        const post = await Post.find({ userId }).sort({createdAt: -1});        response.status(201).json(post);
     } catch (error) {
         response.status(409).json({ message: error.message });
     }
@@ -32,7 +31,7 @@ export const createPost = async (request, response) => {
 export const getFeedPosts = async (request, response) => {
     //getting all the posts in database
     try {
-        const post = await Post.find();
+        const post = await Post.find().sort({createdAt: -1});
         response.status(200).json(post);
     } catch (error) {
         response.status(404).json({ message: error.message });
@@ -43,7 +42,7 @@ export const getUserPosts = async (request, response) => {
     //getting user posts only
     try {
         const { userId } = request.params;
-        const post = await Post.find({ userId });
+        const post = await Post.find({ userId }).sort({createdAt: -1});
         response.status(200).json(post);
     } catch (error) {
         response.status(404).json({ message: error.message });
