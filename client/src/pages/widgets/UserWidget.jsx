@@ -68,11 +68,11 @@ import {
               <Typography
                 onClick={() => navigate(`/profile/${userId}`)}
                 variant="h4"
-                color={dark}
+                color={medium}
                 fontWeight="500"
                 sx={{
                   "&:hover": {
-                    color: light,
+                    color: dark,
                     cursor: "pointer",
                   },
                 }}

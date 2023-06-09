@@ -48,13 +48,13 @@ const Navbar = () => {
         <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="primary"
           onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
-              color: theme.palette.primary.bright,
+              color: main,
               cursor: "pointer"
             },
+            color: dark
           }}
         >
           StudentSpace
