@@ -21,7 +21,8 @@ export const createPost = async (request, response) => {
         
         await newPost.save();
 
-        const post = await Post.find({ userId }).sort({createdAt: -1});        response.status(201).json(post);
+        const post = await Post.find({ userId }).sort({createdAt: -1});        
+        response.status(201).json(post);
     } catch (error) {
         response.status(409).json({ message: error.message });
     }

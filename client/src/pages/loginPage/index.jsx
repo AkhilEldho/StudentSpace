@@ -26,8 +26,8 @@ const LoginPage = () => {
       >
         <img
           width="100%"
-          height="auto"
-          src="http://localhost:8800/assets/Student-Space-Logo.png" />
+          height="50%"
+          src="http://localhost:8800/assets/StudentSpace.jpg"  /> 
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcome to Student Space!
         </Typography>
