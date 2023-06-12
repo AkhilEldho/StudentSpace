@@ -14,7 +14,7 @@ const EventWidget = () => {
     <WidgetWrapper>
       <FlexBetween>
         <Typography color={dark} variant="h5" fontWeight="500">
-          Events
+          Events - Graduation
         </Typography>
         <Typography color={medium}>Add Event</Typography>
       </FlexBetween>
@@ -22,7 +22,7 @@ const EventWidget = () => {
         width="100%"
         height="auto"
         alt="advert"
-        src="http://localhost:8800/assets/info4.jpeg"
+        src="http://localhost:8800/assets/Graduation.jpg"
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>
@@ -30,8 +30,8 @@ const EventWidget = () => {
         <Typography color={medium}>StudentSpace.com</Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
-        Orientation for new students.
-        Come and get yourself familiar with your campus 2024.
+        Graduation December 2023.
+        Bring your family and friends along.
       </Typography>
     </WidgetWrapper>
   );
