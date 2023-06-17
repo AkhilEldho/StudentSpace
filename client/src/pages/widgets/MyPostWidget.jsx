@@ -1,11 +1,11 @@
 import {
     EditOutlined,
     DeleteOutlined,
-    AttachFileOutlined,
     GifBoxOutlined,
     ImageOutlined,
     MicOutlined,
     MoreHorizOutlined,
+    MicOff,
   } from "@mui/icons-material";
   import {
     Box,
@@ -24,6 +24,8 @@ import {
   import FlexBetween from "../../components/FlexBetween";  
   import UserImage from "../../components/UserImage";
   import WidgetWrapper from "../../components/WidgetWrapper";
+  import React from 'react';
+  import SpeechRecognition, { useSpeechRecognition} from 'react-speech-recognition'
 
   //POST WIDGET
   const MyPostWidget = ({ picturePath }) => {
@@ -58,6 +60,17 @@ import {
       setImage(null);
       setPost("");
     };
+
+    const {
+      transcript, 
+      listening, 
+      resetTranscript, 
+      browserSupportsSpeechRecognition
+    } = useSpeechRecognition();
+
+    if(!browserSupportsSpeechRecognition){
+      return <span>Browser Does Not Support Speech</span>
+    }
   
     //DESIGN & Frontend
     return (
@@ -67,7 +80,7 @@ import {
           <InputBase
             placeholder="What's on your mind..."
             onChange={(e) => setPost(e.target.value)}
-            value={post}
+            value={post || transcript}
             sx={{
               width: "100%",
               backgroundColor: palette.neutral.light,
@@ -145,15 +158,15 @@ import {
   
               <FlexBetween gap="0.25rem">
                 <IconButton>
-                  <AttachFileOutlined sx={{ color: mediumMain }} />
-                  <Typography color={mediumMain}>Attachment</Typography>
+                  <MicOff onClick={SpeechRecognition.stopListening} sx={{ color: mediumMain }} />
+                  <Typography color={mediumMain}>Stop</Typography>
                 </IconButton>
               </FlexBetween>
   
               <FlexBetween gap="0.25rem">
                 <IconButton>
-                  <MicOutlined sx={{ color: mediumMain }} />
-                  <Typography color={mediumMain}>Audio</Typography>
+                  <MicOutlined onClick={SpeechRecognition.startListening} sx={{ color: mediumMain }} />
+                  <Typography color={mediumMain}>Record</Typography>
                 </IconButton>
               </FlexBetween>
             </>
