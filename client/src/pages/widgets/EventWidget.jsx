@@ -6,21 +6,18 @@ import Question from "./Question";
 const questions = [
   {
     id: 1,
-    title: "Is this a good product?",
-    info:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui facere in labore maxime, assumenda iure sed tenetur alias omnis eveniet similique laborum, neque porro unde ducimus officiis animi vitae! Quidem."
+    title: "When is graduation happening." ,
+    info: "Happening on the Saturday 13th November."
   },
   {
     id: 2,
-    title: "How much does it cost?",
-    info:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui facere in labore maxime, assumenda iure sed tenetur alias omnis eveniet similique laborum, neque porro unde ducimus officiis animi vitae! Quidem."
+    title: "Where do we get the gowns from?",
+    info: "Can get them from the university just go and ask them."
   },
   {
     id: 3,
-    title: "When can I get it?",
-    info:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui facere in labore maxime, assumenda iure sed tenetur alias omnis eveniet similique laborum, neque porro unde ducimus officiis animi vitae! Quidem."
+    title: "Who can we invite?",
+    info: "Anyone you want can be invited."
   }
 ];
 
