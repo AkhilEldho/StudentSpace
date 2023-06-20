@@ -59,13 +59,16 @@ const Navbar = () => {
         >
           StudentSpace
         </Typography>
+        
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
             borderRadius="9px"
             gap="3rem"
             padding="0.1rem 1.5rem"
+            
           >
+            
             <InputBase placeholder="Search..." />
             <IconButton>
               <Search sx={{color:main}} />

@@ -18,6 +18,7 @@ import {
     useMediaQuery,
   } from "@mui/material";
   import Dropzone from "react-dropzone";
+  import ClearIcon from '@mui/icons-material/Clear';
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setPosts } from "../../state";
@@ -26,6 +27,12 @@ import {
   import WidgetWrapper from "../../components/WidgetWrapper";
   import React from 'react';
   import SpeechRecognition, { useSpeechRecognition} from 'react-speech-recognition'
+
+  const Filter = require("bad-words");
+  const filter = new Filter();
+  //const words = require("./extra-words.json");
+  //filter.addWords(...words);
+  
 
   //POST WIDGET
   const MyPostWidget = ({ picturePath }) => {
@@ -44,7 +51,7 @@ import {
     const handlePost = async () => {
       const formData = new FormData();
       formData.append("userId", _id);
-      formData.append("description", post);
+      formData.append("description", filter.clean(post));
       if (image) {
         formData.append("picture", image);
         formData.append("picturePath", image.name);
@@ -150,15 +157,15 @@ import {
           {isNonMobileScreens ? (
             <>
               <FlexBetween gap="0.25rem">
-                <IconButton>
-                  <GifBoxOutlined sx={{ color: mediumMain }} />
-                  <Typography color={mediumMain}>Clip</Typography>
+                <IconButton onClick={resetTranscript}>
+                  <ClearIcon  sx={{ color: mediumMain }} />
+                  <Typography color={mediumMain}>Clear</Typography>
                 </IconButton>
               </FlexBetween>
   
               <FlexBetween gap="0.25rem">
-                <IconButton>
-                  <MicOff onClick={SpeechRecognition.stopListening} sx={{ color: mediumMain }} />
+                <IconButton onClick={SpeechRecognition.stopListening}>
+                  <MicOff sx={{ color: mediumMain }} />
                   <Typography color={mediumMain}>Stop</Typography>
                 </IconButton>
               </FlexBetween>
