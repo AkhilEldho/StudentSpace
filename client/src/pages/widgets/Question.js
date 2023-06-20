@@ -6,8 +6,9 @@ export default function Question({ question }) {
   return (
     <section>
       <div className={isOpen ? "open" : "closed"}>
-        <h4>{question.title}</h4>
-        <button onClick={() => setOpen(!isOpen)}>{isOpen ? "-" : "+"}</button>
+        <h4>{question.title}
+          <button onClick={() => setOpen(!isOpen)}>{isOpen ? "-" : "+"}</button>
+        </h4>
       </div>
       {isOpen && <p>{question.info}</p>}
     </section>
