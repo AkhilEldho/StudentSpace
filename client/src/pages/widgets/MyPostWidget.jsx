@@ -28,10 +28,10 @@ import {
   import React from 'react';
   import SpeechRecognition, { useSpeechRecognition} from 'react-speech-recognition'
 
+  //Inappropriate Words Filter
   const Filter = require("bad-words");
   const filter = new Filter();
-  //const words = require("./extra-words.json");
-  //filter.addWords(...words);
+  
   
 
   //POST WIDGET
@@ -157,6 +157,7 @@ import {
           {isNonMobileScreens ? (
             <>
               <FlexBetween gap="0.25rem">
+                {/* Clear Button to erase content */}
                 <IconButton onClick={resetTranscript}>
                   <ClearIcon  sx={{ color: mediumMain }} />
                   <Typography color={mediumMain}>Clear</Typography>
@@ -164,13 +165,15 @@ import {
               </FlexBetween>
   
               <FlexBetween gap="0.25rem">
+                {/* Stop Button to stop content creation */}
                 <IconButton onClick={SpeechRecognition.stopListening}>
                   <MicOff sx={{ color: mediumMain }} />
                   <Typography color={mediumMain}>Stop</Typography>
                 </IconButton>
               </FlexBetween>
-  
+
               <FlexBetween gap="0.25rem">
+                {/* Record Button to initiate speech recognition */}
                 <IconButton>
                   <MicOutlined onClick={SpeechRecognition.startListening} sx={{ color: mediumMain }} />
                   <Typography color={mediumMain}>Record</Typography>
