@@ -1,7 +1,6 @@
 import {
     EditOutlined,
     DeleteOutlined,
-    GifBoxOutlined,
     ImageOutlined,
     MicOutlined,
     MoreHorizOutlined,
@@ -32,8 +31,6 @@ import {
   const Filter = require("bad-words");
   const filter = new Filter();
   
-  
-
   //POST WIDGET
   const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
